@@ -169,13 +169,13 @@ function ScrollableSection({ left }) {
                 <div class="accordion-body">
                   <li className="nav-item">
                     <Link
-                      to="/profitandloss"
+                      to="/trailBalance"
                       className="fw-semi-bold nav-link active pt-0"
                       aria-current="page"
                     >
-                      Profit & Loss
+                      Trail Balance
                     </Link>
-                    <Link
+                    {/* <Link
                       to="/daily_reports"
                       className="fw-semi-bold nav-link active pt-0"
                       aria-current="page"
@@ -196,7 +196,7 @@ function ScrollableSection({ left }) {
                       aria-current="page"
                     >
                       Total Purchase Report
-                    </Link>
+                    </Link> */}
                     {/* <Link
                       to="/total_customers"
                       className="fw-semi-bold nav-link active pt-0"
@@ -211,13 +211,13 @@ function ScrollableSection({ left }) {
                     >
                       Total Supplier
                     </Link> */}
-                    <Link
+                    {/* <Link
                       to="/overall"
                       className="fw-semi-bold nav-link active pt-0"
                       aria-current="page"
                     >
                       OverAll
-                    </Link>
+                    </Link> */}
                     {/* <Link to="/supplierreport" className="fw-semi-bold nav-link active pt-0" aria-current="page">
                       Supplier Report
                     </Link>

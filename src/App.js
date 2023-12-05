@@ -9,7 +9,7 @@ import Suplier from "./screen/Pages/People/Suplier/Suplier";
 import Purchase from "./screen/Pages/Purchase/AllPurchase";
 import SalesReturn from "./screen/Pages/SalesReturn/SalesReturn";
 import PurchaseReturn from "./screen/Pages/PurchaseReturn/PurchaseReturn";
-import Expense from "./screen/Pages/Expense/Expense";
+import DailyBook from "./screen/Pages/DailyBook/dailyBook";
 import CreatePurchase from "./screen/Pages/Purchase/CreatePurchase";
 import SaleReport from "./screen/Pages/Report/SaleReport";
 import PurchaseReport from "./screen/Pages/Report/PurchaseReport";
@@ -40,6 +40,8 @@ import ToPayment from "./screen/Pages/ToPayment/ToPayment";
 import Login from "./screen/Login/Login";
 import TotalCustomers from "./screen/Pages/Report/TotalCustomers";
 import Company from "./screen/Pages/Company/Company";
+import TrailBalance from "./screen/Pages/TrailBalance/trailBalance";
+import AccountLedger from "./screen/Pages/AccountLedger/accountLedger";
 
 function App() {
   return (
@@ -81,7 +83,7 @@ function App() {
             {/* <Route path="/unit_tab" element={<UnitTab />} /> */}
 
             {/* Expnse */}
-            <Route path="/expense" element={<Expense />} />
+            <Route path="/expense" element={<DailyBook />} />
 
             {/* medicine pos */}
             <Route path="/medicine_pos" element={<MedicinePOS />} />
@@ -104,6 +106,11 @@ function App() {
 
             {/* overall */}
             <Route path="/overall" element={<OverAll />} />
+
+            {/* trailBalance */}
+            <Route path="/trailBalance" element={<TrailBalance />} />
+            {/* AccountLedger */}
+            <Route path="/accountLedger/:id" element={<AccountLedger />} />
 
             {/* Report Pages */}
             <Route path="/profitandloss" element={<ProftAndLoss />} />

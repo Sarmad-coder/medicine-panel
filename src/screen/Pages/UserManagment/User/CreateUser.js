@@ -47,13 +47,15 @@ const CreateUser = ({
     setLoader(true)
     data.city = selectedOption.value
     console.log(data)
+    data.type="user"
+    data.balance=data.openingBalDr-data.openingBalCr
     axios.post(`${URL}user/create`, data).then((res) => {
       if (res?.status === 200) {
         toast.success("Customer Created");
         setLoader(false);
         reset()
         setModalOpen(false);
-        axios.get(`${URL}user/getAll`).then((res) => {
+        axios.get(`${URL}user/getCustomer`).then((res) => {
           console.log(res);
           setAllUsers(res?.data);
         });

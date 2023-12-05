@@ -9,8 +9,10 @@ import axios from "axios";
 
 import { toast } from "react-toastify";
 import EditSupplier from "./EditSupplier";
+import { useNavigate } from "react-router-dom";
 
 const Suplier = () => {
+  const move=useNavigate()
   const { confirm } = Modal;
   const [modalOpen, setModalOpen] = useState(false);
   const [getSuplier, setGetSuplier] = useState([]);
@@ -19,7 +21,7 @@ const Suplier = () => {
   const [single, setSingle] = useState({});
   useEffect(() => {
     axios
-      .get(`${URL}supplier/getAll`)
+      .get(`${URL}user/getSuplier`)
       .then((res) => {
         // console.log(res);
         setGetSuplier(res?.data);
@@ -41,14 +43,14 @@ const Suplier = () => {
       okType: "danger",
       cancelText: "No",
       onOk() {
-        axios.delete(`${URL}supplier/deleteByID/${id}`).then((res) => {
+        axios.delete(`${URL}user/deleteByID/${id}`).then((res) => {
           console.log(res?.data);
           if (res?.status===200) {
 
             toast.success("Supplier Deleted")
 
             axios
-      .get(`${URL}supplier/getAll`)
+      .get(`${URL}user/getSuplier`)
       .then((res) => {
         // console.log(res);
         setGetSuplier(res?.data);
@@ -165,7 +167,7 @@ const Suplier = () => {
                           <tr>
                           <td>{item?.accountNo}</td>
                         
-                        <td>{item?.supplierName}</td>
+                        <td>{item?.customerName}</td>
                         <td>{item?.address}</td>
 
                             <td>
@@ -182,6 +184,13 @@ const Suplier = () => {
                                   setSingle(item);
                                 }}
                               ></i>
+                               <i
+                             class="fa-solid fa-eye ms-2"
+                              onClick={() => {
+                                move(`/accountLedger/${item._id}`)
+                              }}
+                              style={{ cursor: "pointer" }}
+                            ></i>
                             </td>
                           </tr>
                         </>

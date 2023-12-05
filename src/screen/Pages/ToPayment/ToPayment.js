@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ExclamationCircleFilled } from "@ant-design/icons";
 import { Button, Modal } from "antd";
-import CreateExpense from "../Expense/CreateExpense";
+import CreateExpense from "../DailyBook/CreateExpense";
 import URL from "../../Url";
 import { FiDelete, FiEye } from "react-icons/fi";
 import { toast } from "react-toastify";

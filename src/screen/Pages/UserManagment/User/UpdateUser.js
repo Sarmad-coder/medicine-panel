@@ -63,7 +63,7 @@ const UpdateUser = ({
           toast.success("Customer Update");
           setModalOpen(false);
           // window.location.reload()
-          axios.get(`${URL}user/getAll`).then((res) => {
+          axios.get(`${URL}user/getCustomer`).then((res) => {
             console.log(res);
             setAllUsers(res?.data);
             setLoader(false);

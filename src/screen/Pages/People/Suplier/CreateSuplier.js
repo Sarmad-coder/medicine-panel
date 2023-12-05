@@ -32,13 +32,14 @@ const CreateSuplier = ({
 
   const fn_handleCreate = (data) => {
     console.log(data);
-    
-      axios.post(`${URL}supplier/create`, data).then((res) => {
+    data.balance=data.openingBalDr-data.openingBalCr
+    data.type="suplier"
+    axios.post(`${URL}user/create`, data).then((res) => {
         if (res?.status === 200) {
           toast.success("Supplier Created");
           reset()
           axios
-            .get(`${URL}supplier/getAll`)
+            .get(`${URL}user/getSuplier`)
             .then((res) => {
               // console.log(res);
               setGetSuplier(res?.data);
@@ -79,7 +80,7 @@ const CreateSuplier = ({
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Supplier Name</label>
             <input
-              {...register("supplierName")}
+              {...register("customerName")}
               type="text"
               className="form-control"
               id="exampleInputEmail1"

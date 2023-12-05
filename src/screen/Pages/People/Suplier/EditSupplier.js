@@ -46,13 +46,13 @@ const EditSupplier = ({
   const fn_handleUpdate = (data) => {
     data.id=getData._id
       setLoader(true);
-    axios.put(`${URL}supplier/updateById`, data).then((res) => {
+    axios.put(`${URL}user/updateById`, data).then((res) => {
       if (res?.status === 200) {
         toast.success("Supplier Updated");
 
         
         axios
-        .get(`${URL}supplier/getAll`)
+        .get(`${URL}user/getSuplier`)
         .then((res) => {
           // console.log(res);
           setGetSuplier(res?.data);
@@ -94,7 +94,7 @@ const EditSupplier = ({
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Supplier Name</label>
             <input
-              {...register("supplierName")}
+              {...register("customerName")}
               type="text"
               className="form-control"
               id="exampleInputEmail1"

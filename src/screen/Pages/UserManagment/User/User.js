@@ -8,9 +8,11 @@ import { toast } from "react-toastify";
 import CreateUser from "./CreateUser";
 import UpdateUser from "./UpdateUser";
 import { Oval } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 const { confirm } = Modal;
 
 const User = () => {
+  const move=useNavigate()
   const [modalOpen, setModalOpen] = useState(false);
   const [updateModalOpen, setUpdateModalOpen] = useState(false);
   const [getData, setGetData] = useState({});
@@ -18,7 +20,7 @@ const User = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [updateUsers, setUpdateUsers] = useState([]);
   useEffect(() => {
-    axios.get(`${URL}user/getAll`).then((res) => {
+    axios.get(`${URL}user/getCustomer`).then((res) => {
       console.log(res);
       setAllUsers(res?.data);
     });
@@ -34,7 +36,7 @@ const User = () => {
         axios.delete(`${URL}user/deleteById/${id}`).then((res) => {
           console.log(res?.data);
           if (toast.success("Customer Deleted")) {
-            axios.get(`${URL}user/getAll`).then((res) => {
+            axios.get(`${URL}user/getCustomer`).then((res) => {
               setAllUsers(res?.data);
             });
           }
@@ -168,6 +170,14 @@ const User = () => {
                               onClick={() => {
                                 setUpdateModalOpen(true);
                                 setGetData(item);
+                              }}
+                              style={{ cursor: "pointer" }}
+                            ></i>
+                           
+                             <i
+                             class="fa-solid fa-eye ms-2"
+                              onClick={() => {
+                                move(`/accountLedger/${item._id}`)
                               }}
                               style={{ cursor: "pointer" }}
                             ></i>

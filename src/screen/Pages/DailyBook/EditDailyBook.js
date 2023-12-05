@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import URL from "./../../Url";
+import URL from "../../Url";
 import { useForm } from 'react-hook-form';
 import Select from 'react-select';
 const EditExpense = ({

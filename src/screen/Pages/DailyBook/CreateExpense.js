@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import URL from "./../../Url";
+import URL from "../../Url";
 import { useForm } from 'react-hook-form';
 import Select from 'react-select';
 const CreateExpense = ({
@@ -21,15 +21,12 @@ const CreateExpense = ({
     try {
       let data=[]
       let user=await axios.get(`${URL}user/getAll`)
-      let supplier=await axios.get(`${URL}supplier/getAll`)
-      data=[...user.data, ...supplier.data]
+      data=[...user.data]
       options=[]
       data.forEach((item)=>{
         let obj={}
         if (item.customerName) {
           obj={ value: {id:item._id,user:true}, label:`${item.accountNo} ${item.customerName}` }
-        }else{
-          obj={ value: {id:item._id,supplier:true}, label:`${item.accountNo} ${item.supplierName}` }
         }
         options.push(obj)
       })
@@ -54,12 +51,8 @@ const CreateExpense = ({
   };
 
   const submit = async (data, e) => {
-    if (selectedOption.value.user) {
-      data.userCode=selectedOption.value.id
-    }else{
-      data.supplierCode=selectedOption.value.id
-    }
     setLoader(true)
+    data.userCode=selectedOption.value.id
     axios.post(`${URL}expense/create`, data).then((res) => {
       if (res?.status === 200) {
         toast.success("Customer Created");

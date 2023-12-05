@@ -83,6 +83,7 @@ const Customer = () => {
                                                     <a id="1" className="delete cursor-pointer ul-link-action text-danger" data-toggle="tooltip" data-placement="top" title="Remove">
                                                         <i className="i-Close-Window"><FiDelete /></i>
                                                     </a>&nbsp;&nbsp;
+                                                    
                                                 </td>
                                             </tr>
                                         ))}
